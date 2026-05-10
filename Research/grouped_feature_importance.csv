@@ -1,0 +1,13 @@
+Original_Feature,Importance
+floor_area,0.15590425670044694
+electricity_provider_csc_area,0.1401101534147339
+occupation,0.11382623345385152
+monthly_expenditure,0.10407171714823102
+type_of_house,0.10084037072296448
+education,0.09163868612428155
+built_year_of_the_house,0.07367349321412807
+water_heating_method,0.06624904629048022
+household_size,0.056249606603871974
+socio_economic_class,0.05200787082724907
+house_ownership,0.023273642217045816
+cooking_fuel,0.022154923282715625
