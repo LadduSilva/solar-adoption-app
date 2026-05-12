@@ -27,8 +27,8 @@ def show():
         scale_cols = ["monthly_expenditure", "floor_area", "household_size"]
         input_encoded[scale_cols] = scaler.transform(input_encoded[scale_cols])
 
-        prediction  = model.predict(input_encoded)[0]
         probability = model.predict_proba(input_encoded)[0][1]
+        prediction  = 1 if probability >= threshold else 0
         label = "✅ Likely Solar Adopter" if prediction == 1 else "❌ Not Likely to Adopt Solar"
         return label, probability
 
@@ -37,9 +37,10 @@ def show():
         model         = joblib.load("Research/lr_model.pkl")
         scaler        = joblib.load("Research/scaler.pkl")
         model_columns = joblib.load("Research/model_columns.pkl")
-        return model, scaler, model_columns
+        threshold     = joblib.load("Research/lr_threshold.pkl")
+        return model, scaler, model_columns, threshold
 
-    model, scaler, model_columns = load_artifacts()
+    model, scaler, model_columns, threshold = load_artifacts()
 
     st.title("🔍 Solar Adoption Prediction")
     st.markdown("Enter household details or upload an Excel file to predict solar adoption.")
@@ -183,8 +184,8 @@ def show():
                         scale_cols    = ["monthly_expenditure","floor_area","household_size"]
                         input_encoded[scale_cols] = scaler.transform(input_encoded[scale_cols])
 
-                        predictions   = model.predict(input_encoded)
                         probabilities = model.predict_proba(input_encoded)[:, 1]
+                        predictions   = (probabilities >= threshold).astype(int)
 
                         result_df = batch_df.copy()
                         result_df["Prediction"]    = ["✅ Likely Adopter" if p == 1 else "❌ Not Likely" for p in predictions]
