@@ -67,13 +67,13 @@ def show():
         with st.form("prediction_form"):
             col1, col2 = st.columns(2)
             with col1:
-                socio_class = st.selectbox("Socio Economic Class", ["SEC A","SEC B","SEC C","SEC D","SEC E"])
+                socio_class = st.selectbox("Socio Economic Class", ["SEC A","SEC B","SEC C","SEC D","SEC E"], index=2)
                 education = st.selectbox("Education", [
                     "Graduate / Post-Grads / Degree level professional qualification",
                     "Diploma with O/L or A/L (Non graduate)",
                     "Other professional certificates with O/L or A/L / Part qualification (Non graduate)",
                     "O/L or A/L pending / Passed","Schooling up to Grade 6 - 9",
-                    "Primary Education","Illiterate"])
+                    "Primary Education","Illiterate"], index=3)
                 occupation = st.selectbox("Occupation", [
                     "Skilled Worker","Unskilled Worker","Middle and Senior executive",
                     "Manager / Professional","Clerk / Salesman grades",
@@ -85,33 +85,34 @@ def show():
                     "Tenant cultivator","Farmer owning - Less than 1/2 Acre",
                     "Farmer owning - 1/2 - 1 Acre","Farmer owning - 1 - 2 Acre",
                     "Farmer owning - 2 - 5 Acre",
-                    "Farmer owning - Over 5 acres / Landed proprietor"])
-                monthly_expenditure = st.number_input("Monthly Expenditure (LKR)", min_value=0.0, step=100.0)
-                household_size      = st.number_input("Household Size", min_value=1, step=1)
+                    "Farmer owning - Over 5 acres / Landed proprietor"], index=0)
+                monthly_expenditure = st.number_input("Monthly Expenditure (LKR)", min_value=0.0, value=50000.0, step=100.0)
+                household_size      = st.number_input("Household Size", min_value=1, value=4, step=1)
 
             with col2:
                 house_ownership = st.selectbox("House Ownership", [
                     "Yes, I or a household member owns it.",
                     "No, I am living on rent and the rent is paid by me or a household member.",
                     "No, I am living on rent and the rent is paid by the employer.",
-                    "No, I or any household member does not own or rent this household. We occupy this household without any payment of rent."])
+                    "No, I or any household member does not own or rent this household. We occupy this household without any payment of rent."
+                ], index=0)
                 built_year = st.selectbox("Built Year of the House", [
                     "Before 1980","1980-1989","1990-1999","2000-2009",
-                    "2010-2019","In 2020 or After 2020","Don't know"])
+                    "2010-2019","In 2020 or After 2020","Don't know"], index=3)
                 type_of_house = st.selectbox("Type of House", [
                     "Single House - Single Floor","Single House - Double Floor",
                     "Single House - More than 2 floors","Flat",
                     "Attached house / Annex","Twin Houses","Slum / Shanty",
-                    "Line room/row house","Condominium/ Luxury apartments","Other"])
-                floor_area   = st.number_input("Floor Area (sq ft)", min_value=0.0, step=10.0)
+                    "Line room/row house","Condominium/ Luxury apartments","Other"], index=0)
+                floor_area = st.number_input("Floor Area (sq ft)", min_value=0.0, value=1200.0, step=10.0)
                 cooking_fuel = st.selectbox("Cooking Fuel", [
                     "Gas","Electricity","Firewood","Solar",
-                    "Kerosene","sawdust_or_paddy_husk","Other"])
+                    "Kerosene","sawdust_or_paddy_husk","Other"], index=0)
                 water_heating_method = st.selectbox("Water Heating Method", [
                     "Electricity (directly from the national grid)",
                     "Electricity (generated from solar energy system)",
                     "Gas","Firewood","Kerosene","Saw dust/paddy husk.",
-                    "Coconut shells/charcoal","Other","Unknown"])
+                    "Coconut shells/charcoal","Other","Unknown"], index=0)
 
             submitted = st.form_submit_button("🔍 Predict", use_container_width=True)
 
