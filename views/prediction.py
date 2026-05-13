@@ -73,7 +73,7 @@ def show():
                     "Diploma with O/L or A/L (Non graduate)",
                     "Other professional certificates with O/L or A/L / Part qualification (Non graduate)",
                     "O/L or A/L pending / Passed","Schooling up to Grade 6 - 9",
-                    "Primary Education","Illiterate"], index=3)
+                    "Primary Education","Illiterate"], index=0)
                 occupation = st.selectbox("Occupation", [
                     "Skilled Worker","Unskilled Worker","Middle and Senior executive",
                     "Manager / Professional","Clerk / Salesman grades",
@@ -85,9 +85,9 @@ def show():
                     "Tenant cultivator","Farmer owning - Less than 1/2 Acre",
                     "Farmer owning - 1/2 - 1 Acre","Farmer owning - 1 - 2 Acre",
                     "Farmer owning - 2 - 5 Acre",
-                    "Farmer owning - Over 5 acres / Landed proprietor"], index=0)
-                monthly_expenditure = st.number_input("Monthly Expenditure (LKR)", min_value=0.0, value=50000.0, step=100.0)
-                household_size      = st.number_input("Household Size", min_value=1, value=4, step=1)
+                    "Farmer owning - Over 5 acres / Landed proprietor"], index=3)
+                monthly_expenditure = st.number_input("Monthly Expenditure (LKR)", min_value=0.0, value=150000.0, step=100.0)
+                household_size      = st.number_input("Household Size", min_value=1, value=3, step=1)
 
             with col2:
                 house_ownership = st.selectbox("House Ownership", [
@@ -98,7 +98,7 @@ def show():
                 ], index=0)
                 built_year = st.selectbox("Built Year of the House", [
                     "Before 1980","1980-1989","1990-1999","2000-2009",
-                    "2010-2019","In 2020 or After 2020","Don't know"], index=3)
+                    "2010-2019","In 2020 or After 2020","Don't know"], index=5)
                 type_of_house = st.selectbox("Type of House", [
                     "Single House - Single Floor","Single House - Double Floor",
                     "Single House - More than 2 floors","Flat",
