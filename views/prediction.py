@@ -67,7 +67,7 @@ def show():
         with st.form("prediction_form"):
             col1, col2 = st.columns(2)
             with col1:
-                socio_class = st.selectbox("Socio Economic Class", ["SEC A","SEC B","SEC C","SEC D","SEC E"], index=2)
+                socio_class = st.selectbox("Socio Economic Class", ["SEC A","SEC B","SEC C","SEC D","SEC E"], index=0)
                 education = st.selectbox("Education", [
                     "Graduate / Post-Grads / Degree level professional qualification",
                     "Diploma with O/L or A/L (Non graduate)",
